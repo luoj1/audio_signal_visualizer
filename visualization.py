@@ -36,9 +36,10 @@ class audioSignal:
 				#freq = np.fft.fft(self.buffer[self.base : self.tracker+self.base])
 				freq = np.fft.fftfreq(np.array(self.buffer[self.base : self.tracker]).shape[-1])
 				print('play sound' + str(self.base))
+				# TODO -> properly plays the sound 
 				self.stream.write(freq)
 				print('finish' + str(self.base))
-				self.ax1.clear()
+				# TODO -> fix plotting 
 				self.ax1.plot(self.time,self.buffer)
 				self.fig.canvas.draw()
 				#time.sleep(10) 
@@ -47,7 +48,7 @@ class audioSignal:
 				#plt.show(block= )
 
 				
-
+	# TODO -> correct way of desampling data
 	def chanceFilter(self, input, chance = 200):
 		x = random.randint(1,chance)
 		if x == 2:
@@ -86,7 +87,6 @@ class audioSignal:
 		
 		print('done')
 
-	#def draw(self):
 
 
 m = audioSignal()
